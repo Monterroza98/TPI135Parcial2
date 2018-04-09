@@ -7,7 +7,7 @@ package sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.controller;
 
 import java.util.List;
 import javax.ejb.Local;
-import sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.CalendarioExcepcion;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioExcepcion;
 
 /**
  *

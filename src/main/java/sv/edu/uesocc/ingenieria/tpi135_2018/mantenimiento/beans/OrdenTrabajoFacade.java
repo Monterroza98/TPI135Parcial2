@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.controller;
+package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioExcepcion;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.OrdenTrabajo;
 
 /**
  *
- * @author 
+ * @author joker
  */
 @Stateless
-public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcion> implements CalendarioExcepcionFacadeLocal {
+public class OrdenTrabajoFacade extends AbstractFacade<OrdenTrabajo> implements OrdenTrabajoFacadeLocal {
 
     @PersistenceContext(unitName = "mantPU")
     private EntityManager em;
@@ -25,8 +26,8 @@ public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcio
         return em;
     }
 
-    public CalendarioExcepcionFacade() {
-        super(CalendarioExcepcion.class);
+    public OrdenTrabajoFacade() {
+        super(OrdenTrabajo.class);
     }
-    
+
 }

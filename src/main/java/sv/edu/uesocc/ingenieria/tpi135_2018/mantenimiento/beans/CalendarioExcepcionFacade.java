@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.controller;
+package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,7 +13,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioEx
 
 /**
  *
- * @author 
+ * @author joker
  */
 @Stateless
 public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcion> implements CalendarioExcepcionFacadeLocal {
@@ -28,5 +29,6 @@ public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcio
     public CalendarioExcepcionFacade() {
         super(CalendarioExcepcion.class);
     }
-    
+
+  
 }

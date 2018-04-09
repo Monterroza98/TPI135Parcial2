@@ -3,32 +3,31 @@
   <persistence-unit name="mantPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbc/TPIdataSource</jta-data-source>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.CalendarioExcepcion</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Calendario</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Diagnostico</class>
     <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.DiagnoticoParte</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Equipo</class>
     <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.TipoDetalle</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Estado</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.EstadoMantenimientoDetalle</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.MantenimientoDetalle</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Marca</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Modelo</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.OrdenTrabajo</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Parte</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Paso</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Prioridad</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Procedimiento</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Responsable</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Solicitud</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.SubTipoMantenimiento</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.TipoMantenimiento</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.TipoParte</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.TipoResponsable</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.Unidad</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.DiagnosticoParte</class>
-    <class>sv.edu.ues.fmocc.ingenieria.tpi135.parcial2.entidades.EquipoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Equipo</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Estado</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Parte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.OrdenTrabajo</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Diagnostico</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.MantenimientoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Prioridad</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EstadoMantenimientoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsable</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Responsable</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Procedimiento</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoParte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Modelo</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Calendario</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenimiento</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Unidad</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Solicitud</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioExcepcion</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EquipoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoParte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Paso</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.SubTipoMantenimiento</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
-    
   </persistence-unit>
 </persistence>
