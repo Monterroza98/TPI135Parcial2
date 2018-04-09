@@ -28,6 +28,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Equipo;
  *
  * @author joker
  */
+@Path("equipo")
 public class EquipoResource implements Serializable{
     
     @EJB
