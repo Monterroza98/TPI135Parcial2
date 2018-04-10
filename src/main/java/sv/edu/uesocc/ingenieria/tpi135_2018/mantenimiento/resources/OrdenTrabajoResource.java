@@ -55,10 +55,10 @@ public class OrdenTrabajoResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<OrdenTrabajo> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<OrdenTrabajo> salida = new ArrayList<>();
+            List<OrdenTrabajo> salida = otfl.findRange(first, pageSize);
             salida.add(new OrdenTrabajo());
             return salida;
         }

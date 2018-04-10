@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -34,10 +35,15 @@ public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLoc
                 
     @Override
     public List<Marca> findByNombreLike(String nombre, Integer first, Integer pageSize) {
+        if(nombre!= null){
         Query query = em.createNamedQuery("Marca.findByNombreLike");
+        query.setParameter("nombre", nombre);
         List<Marca> lista= query.getResultList();
         return lista;
-        
+        }
+        return new ArrayList<>();
     }
+
+    
 
 }

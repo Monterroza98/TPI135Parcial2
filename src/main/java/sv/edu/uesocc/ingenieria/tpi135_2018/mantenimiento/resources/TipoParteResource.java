@@ -59,10 +59,10 @@ public class TipoParteResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<TipoParte> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<TipoParte> salida = new ArrayList<>();
+            List<TipoParte> salida = tpfl.findRange(first, pageSize);
             salida.add(new TipoParte());
             return salida;
         }

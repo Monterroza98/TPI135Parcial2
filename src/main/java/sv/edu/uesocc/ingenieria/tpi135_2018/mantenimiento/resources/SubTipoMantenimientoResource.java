@@ -59,10 +59,10 @@ public class SubTipoMantenimientoResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<SubTipoMantenimiento> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<SubTipoMantenimiento> salida = new ArrayList<>();
+            List<SubTipoMantenimiento> salida = stmfl.findRange(first, pageSize);
             salida.add(new SubTipoMantenimiento());
             return salida;
         }
