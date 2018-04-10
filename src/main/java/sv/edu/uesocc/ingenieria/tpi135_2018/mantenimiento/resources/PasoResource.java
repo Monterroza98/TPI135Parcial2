@@ -59,10 +59,10 @@ public class PasoResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Paso> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Paso> salida = new ArrayList<>();
+            List<Paso> salida = pfl.findRange(first, pageSize);
             salida.add(new Paso());
             return salida;
         }

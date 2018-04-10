@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,15 @@ public class SubTipoMantenimientoFacade extends AbstractFacade<SubTipoMantenimie
     }
 
     @Override
-    public List<SubTipoMantenimiento> findByNombreLike(String name, Integer first, Integer pageSize) {
-        Query query = em.createNamedQuery("SubTipoMantenimiento.findByNombreLike");
+    public List<SubTipoMantenimiento> findByNombreLike(String nombre, Integer first, Integer pageSize) {
+        if(nombre!= null){
+        Query query = em.createNamedQuery("SubTipoMntenimiento.findByNombreLike");
+        query.setParameter("nombre", nombre);
         List<SubTipoMantenimiento> lista= query.getResultList();
         return lista;
+        }
+        return new ArrayList<>();
     }
+
    
 }

@@ -44,5 +44,5 @@ public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLoc
         return new ArrayList<>();
         
     }
-
+    
 }

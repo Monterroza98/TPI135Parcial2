@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,15 @@ public class ProcedimientoFacade extends AbstractFacade<Procedimiento> implement
     }
 
     @Override
-    public List<Procedimiento> findByNombreLike(String name, Integer first, Integer pageSize) {
-        Query query = em.createNamedQuery("Procedimiento.findByNombreLike");
+    public List<Procedimiento> findByNombreLike(String nombre, Integer first, Integer pageSize) {
+        if(nombre!= null){
+        Query query = em.createNamedQuery("Unidad.findByNombreLike");
+        query.setParameter("nombre", nombre);
         List<Procedimiento> lista= query.getResultList();
         return lista;
-    }
+        }
+        return new ArrayList<>();
+    
 
+    }
 }

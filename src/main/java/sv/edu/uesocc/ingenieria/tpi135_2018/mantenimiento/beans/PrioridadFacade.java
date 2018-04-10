@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,12 +31,17 @@ public class PrioridadFacade extends AbstractFacade<Prioridad> implements Priori
     public PrioridadFacade() {
         super(Prioridad.class);
     }
-
+    
     @Override
-    public List<Prioridad> findByNombreLike(String name, Integer first, Integer pageSize) {
+    public List<Prioridad> findByNombreLike(String nombre, Integer first, Integer pageSize) {
+        if(nombre!= null){
         Query query = em.createNamedQuery("Prioridad.findByNombreLike");
+        query.setParameter("nombre", nombre);
         List<Prioridad> lista= query.getResultList();
         return lista;
+        }
+        return new ArrayList<>();
+    
+
     }
-   
 }
