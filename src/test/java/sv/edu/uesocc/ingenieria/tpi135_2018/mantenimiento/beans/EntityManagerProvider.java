@@ -8,6 +8,7 @@ package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import org.junit.After;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
@@ -33,13 +34,24 @@ public class EntityManagerProvider implements TestRule{
     public EntityManager em() {
         return this.em;
     }
-
+    
+    @After
+    public void cleanup() {
+        em.getTransaction().rollback();
+    }
+ 
     @Override
-    public Statement apply(Statement stmnt, Description d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Statement apply(final Statement base, Description description) {
+        return new Statement() {
+
+            @Override
+            public void evaluate() throws Throwable {
+                base.evaluate();
+                em.clear();
+                em.close();
+            }
+
+        };
     }
 
-
-    
-    
 }

@@ -16,7 +16,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Rule;
 import org.mockito.internal.util.reflection.Whitebox;
+import static sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.EntityManagerProvider.persistenceUnit;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 
 /**
@@ -24,236 +26,75 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
  * @author joker
  */
 public class MarcaFacadeTest {
-    protected static EntityManagerFactory emf;
-    protected static EntityManager em;
-    
-    public MarcaFacadeTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @BeforeClass
-    public static void init() {
-        emf = Persistence.createEntityManagerFactory("mantenimientoTestPU");
-        em = emf.createEntityManager();
+    @Rule
+    public EntityManagerProvider em = persistenceUnit("mantenimientoTestPU");
 
-    }
-    
-    @Before
-    public void setUp() {;
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of create method, of class MarcaFacade.
-     */
     @Test
-    public void testCreate() throws Exception {
-        Marca marca1= new Marca();
-        marca1.setIdMarca(5);
-        marca1.setNombre("Asus");
-        marca1.setActivo(true);
-        
-        Marca marca2= new Marca();
-        marca2.setIdMarca(6);
-        marca2.setNombre("Acer");
-        marca2.setActivo(true);
-        
-        Marca marca3= new Marca();
-        marca3.setIdMarca(7);
-        marca3.setNombre("HewletPackard");
-        marca3.setActivo(false);
-        
-        MarcaFacade mf= new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-        
+    public void when_creating_null_marca_expect_false() {
+        MarcaFacade mf = new MarcaFacade();
+        Whitebox.setInternalState(mf, "em", em.em());
         mf.getEntityManager().getTransaction().begin();
-        
-        boolean test1 = mf.create(null);
-        boolean test2 = mf.create(marca1);
-        boolean test3 = mf.create(marca2);
-        
-        mf.getEntityManager().getTransaction().commit();
-        assertFalse(test1);
-        assertTrue(test2);
-        assertTrue(test3);
-        assertEquals(2, mf.findAll().size());
 
+        boolean result = mf.create(null);
+
+        assertEquals(0, mf.findAll().size());
+        assertFalse(result);
     }
 
-    /**
-     * Test of remover method, of class MarcaFacade.
-     */
     @Test
-    public void testRemover() throws Exception {
-        Marca marca1= new Marca();
-        marca1.setIdMarca(7);
-        marca1.setNombre("nombre nuevo");
-        marca1.setDescripcion("nuevo");
-        marca1.setActivo(true);
-        
-        MarcaFacade mf= new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-        mf.getEntityManager().getTransaction().begin();
-        Marca t = mf.remover(marca1);
-        mf.getEntityManager().getTransaction().commit();
-        
-        assertEquals(marca1, t);
-
-    }
-
-    /**
-     * Test of crear method, of class MarcaFacade.
-     */
-    @Test
-    public void testCrear() throws Exception {
-        Marca marca1= new Marca();
-        marca1.setIdMarca(7);
-        marca1.setNombre("nombre nuevo");
-        marca1.setDescripcion("nuevo");
-        marca1.setActivo(true);
-        
-        MarcaFacade mf= new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-        mf.getEntityManager().getTransaction().begin();
-        Marca t = mf.crear(marca1);
-        mf.getEntityManager().getTransaction().commit();
-        
-        assertEquals(marca1, t);
-
-    }
-
-    /**
-     * Test of edit method, of class MarcaFacade.
-     */
-    @Test
-    public void testEdit() throws Exception {
-        Marca m1 = new Marca();
-        m1.setIdMarca(1);
-        m1.setNombre("pajarito");
-        m1.setActivo(true);
+    public void when_creating_new_marca_expect_true() {
+        Marca nuevoMarca = new Marca();
+        nuevoMarca.setNombre("Test Marca");
+        nuevoMarca.setDescripcion("Algun detalle de prueba");
+        nuevoMarca.setActivo(true);
 
         MarcaFacade mf = new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-        
-        mf.getEntityManager().getTransaction().begin();
-        
-        boolean test1 = mf.edit(m1);
-        
-        mf.getEntityManager().getTransaction().commit();
-        
-        assertTrue(test1);
+        Whitebox.setInternalState(mf, "em", em.em());
 
+        mf.getEntityManager().getTransaction().begin();
+       
+        boolean result = mf.create(nuevoMarca);
+
+        assertTrue(result);
+        assertEquals(1, mf.findAll().size());
     }
 
-    /**
-     * Test of editar method, of class MarcaFacade.
-     */
     @Test
-    public void testEditar() throws Exception {
-        Marca marca1= new Marca();
-        marca1.setIdMarca(7);
-        marca1.setNombre("nombre nuevo");
-        marca1.setDescripcion("nuevo editado");
-        marca1.setActivo(true);
-        
-        MarcaFacade mf= new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-        mf.getEntityManager().getTransaction().begin();
-        Marca t = mf.editar(marca1);
-        mf.getEntityManager().getTransaction().commit();
-        assertEquals(marca1, t);
-        assertEquals(2, mf.findAll().size());
-
-    }
-
-    /**
-     * Test of remove method, of class MarcaFacade.
-     */
-    @Test
-    public void testRemove() throws Exception {
-        Marca m1 = new Marca();
-        m1.setIdMarca(1);
-        m1.setNombre("pajarito");
-        m1.setActivo(true);
-
+    public void when_modify_valid_marca_expect_true() {
         MarcaFacade mf = new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-
+        Whitebox.setInternalState(mf, "em", em.em());
         mf.getEntityManager().getTransaction().begin();
-        boolean test1 = mf.remove(m1);
-        boolean test2 = mf.remove(null);
+        mf.getEntityManager().persist(new Marca(null, "test marca", true));
 
-        List<Marca> findAll = mf.findAll();
+        Marca expected = new Marca(1, "changed Marca", false);
+        Marca modified = new Marca(1, "changed Marca", false);
 
-        mf.getEntityManager().getTransaction().commit();
+        Marca result = mf.editar(expected);
 
-        assertTrue(test1);
-        assertFalse(test2);
-        assertEquals(1, findAll.size());
-
+        assertNotNull(result.getIdMarca());
+        assertEquals(result.getNombre(), expected.getNombre());
     }
 
-    /**
-     * Test of find method, of class MarcaFacade.
-     */
     @Test
-    public void testFind() throws Exception {
-        Marca m1 = new Marca();
-        m1.setIdMarca(1);
-        m1.setNombre("pajarito");
-        m1.setActivo(true);
-        
+    public void when_delete_null_marca_expect_false() {
         MarcaFacade mf = new MarcaFacade();
-        Whitebox.setInternalState(mf, "em", em);
-
+        Whitebox.setInternalState(mf, "em", em.em());
         mf.getEntityManager().getTransaction().begin();
-        
-        List<Marca> find = (List<Marca>) mf.find(m1.getIdMarca());
-
-        mf.getEntityManager().getTransaction().commit();
-
+        boolean result = mf.remove(null);
+        assertEquals(0, mf.findAll().size());
+        assertFalse(result);
     }
 
-    /**
-     * Test of findAll method, of class MarcaFacade.
-     */
     @Test
-    public void testFindAll() throws Exception {
-
-    }
-
-    /**
-     * Test of findRange method, of class MarcaFacade.
-     */
-    @Test
-    public void testFindRange() throws Exception {
-
-    }
-
-    /**
-     * Test of count method, of class MarcaFacade.
-     */
-    @Test
-    public void testCount() throws Exception {
-
-    }
-
-    /**
-     * Test of findByNombreLike method, of class MarcaFacade.
-     */
-    @Test
-    public void testFindByNombreLike() throws Exception {
-
+    public void when_delete_valid_marca_expect_true() {
+        MarcaFacade mf = new MarcaFacade();
+        Whitebox.setInternalState(mf, "em", em.em());
+        mf.getEntityManager().getTransaction().begin();
+        mf.getEntityManager().persist(new Marca(null, "test Marca", true));
+        Marca entity = new Marca(1);
+        boolean result = mf.remove(entity);
+        assertTrue(result);
     }
     
 }
