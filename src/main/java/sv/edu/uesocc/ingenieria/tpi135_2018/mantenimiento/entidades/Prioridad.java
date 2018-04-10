@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Prioridad.findAll", query = "SELECT p FROM Prioridad p")
     , @NamedQuery(name = "Prioridad.findByIdPrioridad", query = "SELECT p FROM Prioridad p WHERE p.idPrioridad = :idPrioridad")
     , @NamedQuery(name = "Prioridad.findByNombre", query = "SELECT p FROM Prioridad p WHERE p.nombre = :nombre")
-    , @NamedQuery(name = "Prioridad.findByNombreLike", query = "SELECT m FROM Prioridad m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(\"n\"),'%') ")
+    , @NamedQuery(name = "Prioridad.findByNombreLike", query = "SELECT m FROM Prioridad m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(:nombre),'%') ")
     , @NamedQuery(name = "Prioridad.findByDescripcion", query = "SELECT p FROM Prioridad p WHERE p.descripcion = :descripcion")
     , @NamedQuery(name = "Prioridad.findByActivo", query = "SELECT p FROM Prioridad p WHERE p.activo = :activo")})
 public class Prioridad implements Serializable {

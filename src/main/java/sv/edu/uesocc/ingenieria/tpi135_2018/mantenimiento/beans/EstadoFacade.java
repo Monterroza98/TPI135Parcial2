@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,12 +31,17 @@ public class EstadoFacade extends AbstractFacade<Estado> implements EstadoFacade
     public EstadoFacade() {
         super(Estado.class);
     }
-
-    @Override
-    public List<Estado> findByNombreLike(String name, Integer first, Integer pageSize) {
+    @Override    
+     public List<Estado> findByNombreLike(String nombre, Integer first, Integer pageSize) {
+        if(nombre!= null){
         Query query = em.createNamedQuery("Estado.findByNombreLike");
+        query.setParameter("nombre", nombre);
         List<Estado> lista= query.getResultList();
         return lista;
+        }
+        return new ArrayList<>();
+    
+
     }
     
 }

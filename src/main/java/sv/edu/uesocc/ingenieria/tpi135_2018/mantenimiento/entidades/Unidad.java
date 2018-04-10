@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Unidad.findAll", query = "SELECT u FROM Unidad u")
     , @NamedQuery(name = "Unidad.findByIdUnidad", query = "SELECT u FROM Unidad u WHERE u.idUnidad = :idUnidad")
     , @NamedQuery(name = "Unidad.findByNombre", query = "SELECT u FROM Unidad u WHERE u.nombre = :nombre")
-    , @NamedQuery(name = "Unidad.findByNombreLike", query = "SELECT m FROM Unidad m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(\"n\"),'%') ")
+    , @NamedQuery(name = "Unidad.findByNombreLike", query = "SELECT m FROM Unidad m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(:nombre),'%') ")
     , @NamedQuery(name = "Unidad.findByCodigo", query = "SELECT u FROM Unidad u WHERE u.codigo = :codigo")})
 public class Unidad implements Serializable {
 

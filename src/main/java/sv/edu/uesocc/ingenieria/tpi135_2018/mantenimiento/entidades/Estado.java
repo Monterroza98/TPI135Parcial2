@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e")
     , @NamedQuery(name = "Estado.findByIdEstado", query = "SELECT e FROM Estado e WHERE e.idEstado = :idEstado")
     , @NamedQuery(name = "Estado.findByNombre", query = "SELECT e FROM Estado e WHERE e.nombre = :nombre")
-    , @NamedQuery(name = "Estado.findByNombreLike", query = "SELECT m FROM Estado m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(\"n\"),'%') ")
+    , @NamedQuery(name = "Estado.findByNombreLike", query = "SELECT m FROM Estado m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(:nombre),'%') ")
     , @NamedQuery(name = "Estado.findByActivo", query = "SELECT e FROM Estado e WHERE e.activo = :activo")
     , @NamedQuery(name = "Estado.findByDescripcion", query = "SELECT e FROM Estado e WHERE e.descripcion = :descripcion")})
 public class Estado implements Serializable {

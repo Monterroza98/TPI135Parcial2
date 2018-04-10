@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "SubTipoMantenimiento.findAll", query = "SELECT s FROM SubTipoMantenimiento s")
     , @NamedQuery(name = "SubTipoMantenimiento.findByIdSubTipoMantenimiento", query = "SELECT s FROM SubTipoMantenimiento s WHERE s.idSubTipoMantenimiento = :idSubTipoMantenimiento")
     , @NamedQuery(name = "SubTipoMantenimiento.findByNombre", query = "SELECT s FROM SubTipoMantenimiento s WHERE s.nombre = :nombre")
-    , @NamedQuery(name = "SubTipoMantenimiento.findByNombreLike", query = "SELECT m FROM SubTipoMantenimiento m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(\"n\"),'%') ")
+    , @NamedQuery(name = "SubTipoMantenimiento.findByNombreLike", query = "SELECT m FROM SubTipoMantenimiento m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(:nombre),'%') ")
     , @NamedQuery(name = "SubTipoMantenimiento.findByDescripcion", query = "SELECT s FROM SubTipoMantenimiento s WHERE s.descripcion = :descripcion")})
 public class SubTipoMantenimiento implements Serializable {
 
