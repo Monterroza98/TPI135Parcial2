@@ -21,13 +21,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.EstadoMantenimientoDetalleFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EquipoDetalle;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EstadoMantenimientoDetalle;
 
 /**
  *
  * @author joker
  */
+@Path("estadomantenimientodetalle")
 public class EstadoMantenimientoDetalleResource implements Serializable{
     
     @EJB

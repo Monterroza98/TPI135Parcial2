@@ -31,7 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenim
  *
  * @author joker
  */
-@Path("tipoMantenimiento")
+@Path("tipomantenimiento")
 public class TipoMantenimientoResource implements Serializable{
     
     @EJB

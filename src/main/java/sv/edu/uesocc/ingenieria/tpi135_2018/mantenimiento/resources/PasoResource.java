@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Paso;
  *
  * @author joker
  */
+@Path("paso")
 public class PasoResource implements Serializable{
     
     @EJB

@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoParte;
  *
  * @author joker
  */
+@Path("tipoparte")
 public class TipoParteResource implements Serializable{
     
     @EJB

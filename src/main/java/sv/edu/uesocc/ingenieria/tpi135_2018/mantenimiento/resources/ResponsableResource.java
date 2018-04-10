@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Responsable;
  *
  * @author joker
  */
+@Path("responsable")
 public class ResponsableResource implements Serializable{
     
     @EJB

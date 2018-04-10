@@ -21,13 +21,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.SolicitudFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EquipoDetalle;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Solicitud;
 
 /**
  *
  * @author joker
  */
+@Path("solicitud")
 public class SolicitudResource implements Serializable{
     
     @EJB

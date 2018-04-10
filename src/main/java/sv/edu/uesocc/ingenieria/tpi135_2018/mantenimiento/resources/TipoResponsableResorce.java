@@ -32,7 +32,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsa
  *
  * @author joker
  */
-@Path("tipoResponsable")
+@Path("tiporesponsable")
 public class TipoResponsableResorce implements  Serializable{
     
     @EJB

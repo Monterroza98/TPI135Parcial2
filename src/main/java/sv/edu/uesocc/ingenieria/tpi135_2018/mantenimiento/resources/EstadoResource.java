@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Estado;
  *
  * @author joker
  */
+@Path("estado")
 public class EstadoResource implements Serializable{
     
     @EJB
