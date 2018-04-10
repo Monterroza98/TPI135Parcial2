@@ -59,10 +59,10 @@ public class MarcaResource implements Serializable {
     @Produces({MediaType.APPLICATION_JSON})
     public List<Marca> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pageSize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Marca> salida = new ArrayList<>();
+            List<Marca> salida = mfl.findRange(first, pageSize);
             salida.add(new Marca());
             return salida;
         }

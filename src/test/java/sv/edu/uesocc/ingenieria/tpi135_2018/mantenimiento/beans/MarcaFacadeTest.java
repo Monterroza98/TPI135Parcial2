@@ -38,10 +38,15 @@ public class MarcaFacadeTest {
     public static void tearDownClass() {
     }
     
-    @Before
-    public void setUp() {
-        emf = Persistence.createEntityManagerFactory("mantPU");
+    @BeforeClass
+    public static void init() {
+        emf = Persistence.createEntityManagerFactory("mantenimientoTestPU");
         em = emf.createEntityManager();
+
+    }
+    
+    @Before
+    public void setUp() {;
     }
     
     @After
