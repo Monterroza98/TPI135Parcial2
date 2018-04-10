@@ -41,6 +41,6 @@ public class ProcedimientoFacade extends AbstractFacade<Procedimiento> implement
         return lista;
         }
         return new ArrayList<>();
-    }
 
+    }
 }

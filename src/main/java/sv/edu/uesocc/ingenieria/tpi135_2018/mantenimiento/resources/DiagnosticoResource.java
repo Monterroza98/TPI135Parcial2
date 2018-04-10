@@ -58,10 +58,10 @@ public class DiagnosticoResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Diagnostico> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Diagnostico> salida = new ArrayList<>();
+            List<Diagnostico> salida = dfl.findRange(first, pageSize);
             salida.add(new Diagnostico());
             return salida;
         }

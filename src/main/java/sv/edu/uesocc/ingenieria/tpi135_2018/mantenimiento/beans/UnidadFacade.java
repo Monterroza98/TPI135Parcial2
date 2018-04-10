@@ -41,7 +41,6 @@ public class UnidadFacade extends AbstractFacade<Unidad> implements UnidadFacade
         return lista;
         }
         return new ArrayList<>();
-        
     }
  
 }

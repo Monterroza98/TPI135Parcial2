@@ -59,10 +59,10 @@ public class ResponsableResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Responsable> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Responsable> salida = new ArrayList<>();
+            List<Responsable> salida = rfl.findRange(first, pageSize);
             salida.add(new Responsable());
             return salida;
         }

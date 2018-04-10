@@ -1,2 +1,13 @@
 /target/
 /nbproject/
+# .gitignore for java Project sample
+# Compiled class file
+*.class
+# Log file
+*.log
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar

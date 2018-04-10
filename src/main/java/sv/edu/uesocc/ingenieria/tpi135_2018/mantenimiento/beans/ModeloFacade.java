@@ -41,5 +41,6 @@ public class ModeloFacade extends AbstractFacade<Modelo> implements ModeloFacade
         return lista;
         }
         return new ArrayList<>();
+
     }
 }

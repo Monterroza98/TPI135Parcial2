@@ -55,7 +55,7 @@ public class MarcaResource implements Serializable {
         return lista;
     }
 
-    @GET
+ @GET
     @Produces({MediaType.APPLICATION_JSON})
     public List<Marca> findRange(
             @DefaultValue("0") @QueryParam("first") int first,

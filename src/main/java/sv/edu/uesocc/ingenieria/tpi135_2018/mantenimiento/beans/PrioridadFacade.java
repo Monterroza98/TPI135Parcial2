@@ -31,7 +31,7 @@ public class PrioridadFacade extends AbstractFacade<Prioridad> implements Priori
     public PrioridadFacade() {
         super(Prioridad.class);
     }
-
+    
     @Override
     public List<Prioridad> findByNombreLike(String name) {
          if(name!= null && getEntityManager() !=null){
@@ -42,5 +42,4 @@ public class PrioridadFacade extends AbstractFacade<Prioridad> implements Priori
         }
         return new ArrayList<>();
     }
-   
 }

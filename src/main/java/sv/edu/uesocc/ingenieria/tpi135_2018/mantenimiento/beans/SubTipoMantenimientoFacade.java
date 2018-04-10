@@ -41,7 +41,8 @@ public class SubTipoMantenimientoFacade extends AbstractFacade<SubTipoMantenimie
         return lista;
         }
         return new ArrayList<>();
-        
+
     }
+
    
 }

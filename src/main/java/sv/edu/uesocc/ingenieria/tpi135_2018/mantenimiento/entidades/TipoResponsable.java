@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TipoResponsable.findAll", query = "SELECT t FROM TipoResponsable t")
     , @NamedQuery(name = "TipoResponsable.findByIdTipoResponsable", query = "SELECT t FROM TipoResponsable t WHERE t.idTipoResponsable = :idTipoResponsable")
     , @NamedQuery(name = "TipoResponsable.findByNombre", query = "SELECT t FROM TipoResponsable t WHERE t.nombre = :nombre")
-    , @NamedQuery(name = "TipoResponsable.findByNombreLike", query = "SELECT m FROM TipoResponsable m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(\"n\"),'%') ")
+    , @NamedQuery(name = "TipoResponsable.findByNombreLike", query = "SELECT m FROM TipoResponsable m WHERE LOWER(m.nombre) LIKE CONCAT('%',LOWER(:nombre),'%') ")
     , @NamedQuery(name = "TipoResponsable.findByDescripciont", query = "SELECT t FROM TipoResponsable t WHERE t.descripciont = :descripciont")})
 public class TipoResponsable implements Serializable {
 

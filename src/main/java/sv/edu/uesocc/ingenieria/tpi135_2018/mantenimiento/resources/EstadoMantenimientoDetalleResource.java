@@ -55,10 +55,10 @@ public class EstadoMantenimientoDetalleResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<EstadoMantenimientoDetalle> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<EstadoMantenimientoDetalle> salida = new ArrayList<>();
+            List<EstadoMantenimientoDetalle> salida = emdfl.findRange(first, pageSize);
             salida.add(new EstadoMantenimientoDetalle());
             return salida;
         }

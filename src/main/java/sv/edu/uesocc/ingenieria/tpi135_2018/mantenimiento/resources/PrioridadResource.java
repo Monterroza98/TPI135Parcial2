@@ -59,10 +59,10 @@ public class PrioridadResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Prioridad> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Prioridad> salida = new ArrayList<>();
+            List<Prioridad> salida = pfl.findRange(first, pageSize);
             salida.add(new Prioridad());
             return salida;
         }
