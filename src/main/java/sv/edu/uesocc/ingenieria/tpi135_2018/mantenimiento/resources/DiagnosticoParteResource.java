@@ -27,7 +27,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoP
  *
  * @author joker
  */
-@Path("diagnosticoParte")
+@Path("diagnosticoparte")
 public class DiagnosticoParteResource implements Serializable{
     
     @EJB

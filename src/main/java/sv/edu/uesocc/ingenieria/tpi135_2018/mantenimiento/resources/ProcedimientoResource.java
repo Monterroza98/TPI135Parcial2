@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Procedimient
  *
  * @author joker
  */
+@Path("procedimiento")
 public class ProcedimientoResource implements Serializable{
     
     @EJB

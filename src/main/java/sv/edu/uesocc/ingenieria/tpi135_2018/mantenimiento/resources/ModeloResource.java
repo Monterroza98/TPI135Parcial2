@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Modelo;
  *
  * @author joker
  */
+@Path("modelo")
 public class ModeloResource implements Serializable{
     
     @EJB

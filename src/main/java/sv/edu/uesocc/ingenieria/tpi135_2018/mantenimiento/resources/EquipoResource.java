@@ -21,13 +21,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.EquipoFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoParte;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Equipo;
 
 /**
  *
  * @author joker
  */
+@Path("equipo")
 public class EquipoResource implements Serializable{
     
     @EJB

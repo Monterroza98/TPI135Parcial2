@@ -31,6 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Prioridad;
  *
  * @author joker
  */
+@Path("prioridad")
 public class PrioridadResource implements Serializable{
     
     @EJB

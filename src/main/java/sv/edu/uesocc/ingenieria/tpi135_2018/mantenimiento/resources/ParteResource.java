@@ -25,13 +25,13 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.ParteFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Parte;
 
 /**
  *
  * @author joker
  */
+@Path("parte")
 public class ParteResource implements Serializable{
     
     @EJB

@@ -31,7 +31,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.SubTipoMante
  *
  * @author joker
  */
-@Path("subTipoMantenimiento")
+@Path("subtipomantenimiento")
 public class SubTipoMantenimientoResource implements Serializable{
     
     @EJB
