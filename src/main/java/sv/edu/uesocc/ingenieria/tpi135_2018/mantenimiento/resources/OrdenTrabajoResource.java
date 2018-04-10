@@ -27,6 +27,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.OrdenTrabajo
  *
  * @author joker
  */
+@Path("ordentrabajo")
 public class OrdenTrabajoResource implements Serializable{
     
     @EJB

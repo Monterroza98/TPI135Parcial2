@@ -27,6 +27,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EquipoDetall
  *
  * @author joker
  */
+@Path("equipodetalle")
 public class EquipoDetalleResource implements Serializable{
     
     @EJB

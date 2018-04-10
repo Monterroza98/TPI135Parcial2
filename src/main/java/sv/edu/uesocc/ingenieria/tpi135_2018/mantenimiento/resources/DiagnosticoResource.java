@@ -26,7 +26,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.DiagnosticoFacadeLocal;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Diagnostico;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 
 /**
  *
