@@ -24,7 +24,7 @@ public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLoc
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
 
@@ -32,17 +32,17 @@ public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLoc
         super(Marca.class);
     }  
     
-                
-    @Override
-    public List<Marca> findByNombreLike(String nombre, Integer first, Integer pageSize) {
-        if(nombre!= null){
+    @Override            
+    public List<Marca> findByNombreLike(String nombre) {
+        if(nombre!= null && getEntityManager() !=null){
         Query query = em.createNamedQuery("Marca.findByNombreLike");
-        query.setParameter("nombre", nombre);
+        query.setParameter("nombre", nombre.toLowerCase());
         List<Marca> lista= query.getResultList();
         return lista;
         }
         return new ArrayList<>();
         
     }
+
 
 }
