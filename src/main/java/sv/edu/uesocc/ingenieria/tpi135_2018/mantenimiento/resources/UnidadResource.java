@@ -60,10 +60,10 @@ public class UnidadResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Unidad> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Unidad> salida = new ArrayList<>();
+            List<Unidad> salida = ufl.findRange(first, pageSize);
             salida.add(new Unidad());
             return salida;
         }

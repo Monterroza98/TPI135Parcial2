@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="mantenimientoTestPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Calendario</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioExcepcion</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnoticoParte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Equipo</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Estado</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Parte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.OrdenTrabajo</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Diagnostico</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.MantenimientoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Prioridad</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EstadoMantenimientoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsable</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Responsable</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Procedimiento</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoParte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Modelo</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenimiento</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Unidad</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Solicitud</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EquipoDetalle</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoParte</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Paso</class>
+    <class>sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.SubTipoMantenimiento</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:mantenimiento"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    </properties>
+  </persistence-unit>
+</persistence>
