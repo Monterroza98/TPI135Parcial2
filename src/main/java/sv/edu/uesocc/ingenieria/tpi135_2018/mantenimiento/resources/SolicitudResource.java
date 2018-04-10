@@ -55,10 +55,10 @@ public class SolicitudResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Solicitud> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Solicitud> salida = new ArrayList<>();
+            List<Solicitud> salida =sfl.findRange(first, pageSize);
             salida.add(new Solicitud());
             return salida;
         }

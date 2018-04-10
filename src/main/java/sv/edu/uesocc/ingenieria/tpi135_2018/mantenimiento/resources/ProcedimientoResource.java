@@ -58,10 +58,10 @@ public class ProcedimientoResource implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<Procedimiento> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Procedimiento> salida = new ArrayList<>();
+            List<Procedimiento> salida =pfl.findRange(first, pageSize);
             salida.add(new Procedimiento());
             return salida;
         }

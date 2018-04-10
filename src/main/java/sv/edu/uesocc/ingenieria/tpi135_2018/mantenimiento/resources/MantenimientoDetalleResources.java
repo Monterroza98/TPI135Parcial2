@@ -21,7 +21,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.MantenimientoDetalleFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EquipoDetalle;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.MantenimientoDetalle;
 
 /**
@@ -55,10 +54,10 @@ public class MantenimientoDetalleResources implements Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public List<MantenimientoDetalle> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
-            @DefaultValue("0") @QueryParam("pagesize") int pageSize
+            @DefaultValue("5") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<MantenimientoDetalle> salida = new ArrayList<>();
+            List<MantenimientoDetalle> salida = mdfl.findRange(first, pageSize);
             salida.add(new MantenimientoDetalle());
             return salida;
         }
