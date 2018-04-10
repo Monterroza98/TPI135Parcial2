@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import javax.persistence.EntityManager;
@@ -12,6 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -97,4 +99,94 @@ public class MarcaFacadeTest {
         assertTrue(result);
     }
     
+    @Test
+    public void findAll(){
+        MarcaFacade mf = new MarcaFacade();
+        
+        Marca nuevoMarca = new Marca();
+        nuevoMarca.setNombre("Test Marca");
+        nuevoMarca.setDescripcion("Algun detalle de prueba");
+        nuevoMarca.setActivo(true);
+        
+        Marca nuevoMarca2 = new Marca();
+        nuevoMarca2.setNombre("Test Marca2");
+        nuevoMarca2.setDescripcion("Algun detalle de prueba2");
+        nuevoMarca2.setActivo(true);
+
+        Whitebox.setInternalState(mf, "em", em.em());
+
+        mf.getEntityManager().getTransaction().begin();
+        
+        boolean result1 = mf.create(nuevoMarca);
+        boolean result2 = mf.create(nuevoMarca2);
+        
+        assertTrue(result1);
+        assertEquals(2, mf.findAll().size());   
+    }
+    
+    @Test
+    public void findRange(){
+        MarcaFacade mf = new MarcaFacade();
+        
+        Marca nuevoMarca = new Marca();
+        nuevoMarca.setNombre("Test Marca");
+        nuevoMarca.setDescripcion("Algun detalle de prueba");
+        nuevoMarca.setActivo(true);
+        
+        Marca nuevoMarca2 = new Marca();
+        nuevoMarca2.setNombre("Test Marca2");
+        nuevoMarca2.setDescripcion("Algun detalle de prueba2");
+        nuevoMarca2.setActivo(true);
+        
+        Marca nuevoMarca3 = new Marca();
+        nuevoMarca.setNombre("Test Marca3");
+        nuevoMarca.setDescripcion("Algun detalle de prueba3");
+        nuevoMarca.setActivo(true);
+        
+        Marca nuevoMarca4 = new Marca();
+        nuevoMarca2.setNombre("Test Marca4");
+        nuevoMarca2.setDescripcion("Algun detalle de prueba4");
+        nuevoMarca2.setActivo(true);
+        
+        Whitebox.setInternalState(mf, "em", em.em());
+
+        mf.getEntityManager().getTransaction().begin();
+        
+        boolean result1 = mf.create(nuevoMarca);
+        boolean result2 = mf.create(nuevoMarca2);
+        boolean result3 = mf.create(nuevoMarca3);
+        boolean result4 = mf.create(nuevoMarca4);
+        
+        assertEquals(2, mf.findRange(0, 2).size());
+  
+    }
+    
+    @Test
+  public void findByNombreLike(){
+      MarcaFacade mf= new MarcaFacade();
+      Whitebox.setInternalState(mf, "em", em.em());
+      mf.getEntityManager().getTransaction().begin();
+      Marca m1 = new Marca(1, "chepito", true);
+      Marca m2 = new Marca(2, "gochez", true);
+      Marca m3 = new Marca(3, "monzo", true);
+   
+      mf.getEntityManager().persist(m1);
+      mf.getEntityManager().persist(m2);
+      mf.getEntityManager().persist(m3);
+      
+      Assert.assertEquals(3, mf.findAll().size());
+      
+      List<Marca> resultado = mf.findByNombreLike("mon");
+      
+      List<Marca> esperado= new ArrayList<>();
+      esperado.add(m3);
+
+      resultado.stream().forEach(t->{
+          System.out.println(t.getNombre());
+      });
+      
+      Assert.assertEquals(resultado.size(), esperado.size());
+      
+      
+  }
 }

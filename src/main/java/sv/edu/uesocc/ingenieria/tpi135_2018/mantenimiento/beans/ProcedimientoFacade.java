@@ -33,15 +33,14 @@ public class ProcedimientoFacade extends AbstractFacade<Procedimiento> implement
     }
 
     @Override
-    public List<Procedimiento> findByNombreLike(String nombre, Integer first, Integer pageSize) {
-        if(nombre!= null){
-        Query query = em.createNamedQuery("Unidad.findByNombreLike");
-        query.setParameter("nombre", nombre);
+    public List<Procedimiento> findByNombreLike(String name) {
+         if(name!= null && getEntityManager() !=null){
+        Query query = em.createNamedQuery("Procedimiento.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<Procedimiento> lista= query.getResultList();
         return lista;
         }
         return new ArrayList<>();
-    
 
     }
 }

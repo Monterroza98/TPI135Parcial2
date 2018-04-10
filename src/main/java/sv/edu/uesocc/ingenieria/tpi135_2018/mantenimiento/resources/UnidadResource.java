@@ -78,7 +78,7 @@ public class UnidadResource implements Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && ufl != null) {
-            List<Unidad> salida = ufl.findByNombreLike(nombre, first, pageSize);
+            List<Unidad> salida = ufl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (Unidad u : salida) {

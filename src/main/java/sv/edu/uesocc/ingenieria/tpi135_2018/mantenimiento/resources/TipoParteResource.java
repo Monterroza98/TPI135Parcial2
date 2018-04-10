@@ -77,7 +77,7 @@ public class TipoParteResource implements Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && tpfl != null) {
-            List<TipoParte> salida = tpfl.findByNombreLike(nombre, first, pageSize);
+            List<TipoParte> salida = tpfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (TipoParte t : salida) {

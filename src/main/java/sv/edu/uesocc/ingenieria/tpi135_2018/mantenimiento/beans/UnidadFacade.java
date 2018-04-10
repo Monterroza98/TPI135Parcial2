@@ -33,16 +33,14 @@ public class UnidadFacade extends AbstractFacade<Unidad> implements UnidadFacade
     }
 
     @Override
-    public List<Unidad> findByNombreLike(String nombre, Integer first, Integer pageSize) {
-        if(nombre!= null){
+    public List<Unidad> findByNombreLike(String name) {
+        if(name!= null && getEntityManager() !=null){
         Query query = em.createNamedQuery("Unidad.findByNombreLike");
-        query.setParameter("nombre", nombre);
+        query.setParameter("nombre", name.toLowerCase());
         List<Unidad> lista= query.getResultList();
         return lista;
         }
         return new ArrayList<>();
-    
-
     }
  
 }

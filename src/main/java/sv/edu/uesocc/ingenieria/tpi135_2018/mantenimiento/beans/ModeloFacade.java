@@ -32,17 +32,15 @@ public class ModeloFacade extends AbstractFacade<Modelo> implements ModeloFacade
         super(Modelo.class);
     }
 
-   @Override
-    public List<Modelo> findByNombreLike(String nombre, Integer first, Integer pageSize) {
-        if(nombre!= null){
-        Query query = em.createNamedQuery("Unidad.findByNombreLike");
-        query.setParameter("nombre", nombre);
+    @Override
+    public List<Modelo> findByNombreLike(String name) {
+       if(name!= null && getEntityManager() !=null){
+        Query query = em.createNamedQuery("Modelo.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<Modelo> lista= query.getResultList();
         return lista;
         }
         return new ArrayList<>();
-    
 
     }
-    
 }

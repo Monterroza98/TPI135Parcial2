@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoParte;
 @Local
 public interface TipoParteFacadeLocal extends AbstractFacadeInterface<TipoParte>{
     
-    public List<TipoParte> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<TipoParte> findByNombreLike(String name);
     
 }

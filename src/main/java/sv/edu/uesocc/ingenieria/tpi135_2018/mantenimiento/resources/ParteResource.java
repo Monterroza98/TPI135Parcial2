@@ -77,7 +77,7 @@ public class ParteResource implements Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && pfl != null) {
-            List<Parte> salida = pfl.findByNombreLike(nombre, first, pageSize);
+            List<Parte> salida = pfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (Parte p : salida) {

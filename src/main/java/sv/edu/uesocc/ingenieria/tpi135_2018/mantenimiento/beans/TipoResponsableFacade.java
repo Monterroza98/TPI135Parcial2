@@ -33,16 +33,14 @@ public class TipoResponsableFacade extends AbstractFacade<TipoResponsable> imple
     }
 
     @Override
-    public List<TipoResponsable> findByNombreLike(String nombre, Integer first, Integer pageSize) {
-        if(nombre!= null){
-        Query query = em.createNamedQuery("Unidad.findByNombreLike");
-        query.setParameter("nombre", nombre);
+    public List<TipoResponsable> findByNombreLike(String name) {
+         if(name!= null && getEntityManager() !=null){
+        Query query = em.createNamedQuery("TipoResponsable.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<TipoResponsable> lista= query.getResultList();
         return lista;
         }
         return new ArrayList<>();
-    
-
     }
 
 }

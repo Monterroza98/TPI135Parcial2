@@ -77,7 +77,7 @@ public class MarcaResource implements Serializable {
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && mfl != null) {
-            List<Marca> salida = mfl.findByNombreLike(nombre, first, pageSize);
+            List<Marca> salida = mfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (Marca marca : salida) {

@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,14 @@ public class TipoParteFacade extends AbstractFacade<TipoParte> implements TipoPa
     }
 
     @Override
-    public List<TipoParte> findByNombreLike(String name, Integer first, Integer pageSize) {
+    public List<TipoParte> findByNombreLike(String name) {
+         if(name!= null && getEntityManager() !=null){
         Query query = em.createNamedQuery("TipoParte.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<TipoParte> lista= query.getResultList();
         return lista;
+        }
+        return new ArrayList<>();
     }
 
 }

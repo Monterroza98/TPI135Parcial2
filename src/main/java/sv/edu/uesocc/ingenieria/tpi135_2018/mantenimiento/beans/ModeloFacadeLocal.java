@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Modelo;
 @Local
 public interface ModeloFacadeLocal extends AbstractFacadeInterface<Modelo>{
 
-    public List<Modelo> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<Modelo> findByNombreLike(String name);
     
 }

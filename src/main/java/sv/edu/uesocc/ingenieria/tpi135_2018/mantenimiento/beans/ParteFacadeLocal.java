@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Parte;
 @Local
 public interface ParteFacadeLocal extends AbstractFacadeInterface<Parte>{
 
-    public List<Parte> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<Parte> findByNombreLike(String name);
     
 }

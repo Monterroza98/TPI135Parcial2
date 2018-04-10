@@ -77,7 +77,7 @@ public class TipoMantenimientoResource implements Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && tmfl != null) {
-            List<TipoMantenimiento> salida = tmfl.findByNombreLike(nombre, first, pageSize);
+            List<TipoMantenimiento> salida = tmfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (TipoMantenimiento t : salida) {

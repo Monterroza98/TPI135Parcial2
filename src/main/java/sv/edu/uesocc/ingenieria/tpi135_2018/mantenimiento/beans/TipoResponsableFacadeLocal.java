@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsa
 @Local
 public interface TipoResponsableFacadeLocal extends AbstractFacadeInterface<TipoResponsable>{
 
-    public List<TipoResponsable> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<TipoResponsable> findByNombreLike(String name);
     
 }

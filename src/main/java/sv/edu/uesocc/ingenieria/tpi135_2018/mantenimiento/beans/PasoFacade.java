@@ -31,17 +31,18 @@ public class PasoFacade extends AbstractFacade<Paso> implements PasoFacadeLocal 
     public PasoFacade() {
         super(Paso.class);
     }
-    @Override
-   public List<Paso> findByNombreLike(String nombre, Integer first, Integer pageSize) {
-        if(nombre!= null){
+
+   public List<Paso> findByNombreLike(String name) {
+        if(name!= null && getEntityManager() !=null){
         Query query = em.createNamedQuery("Paso.findByNombreLike");
-        query.setParameter("nombre", nombre);
+        query.setParameter("nombre", name.toLowerCase());
         List<Paso> lista= query.getResultList();
         return lista;
         }
         return new ArrayList<>();
-    
 
     }
 
+
+}
 }

@@ -98,11 +98,6 @@ public abstract class AbstractFacade<T> {
         return getEntityManager().find(entityClass, id);
     }
     
-//    public T findbyName(Object name) {
-//        return getEntityManager().find(entityClass, name);
-//    }
-
-
     public List<T> findAll() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));

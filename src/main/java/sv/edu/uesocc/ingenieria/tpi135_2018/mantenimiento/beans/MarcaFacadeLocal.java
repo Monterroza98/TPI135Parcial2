@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 @Local
 public interface MarcaFacadeLocal extends AbstractFacadeInterface<Marca>{
     
-      public List<Marca> findByNombreLike(String name, Integer first, Integer pageSize);
+      public List<Marca> findByNombreLike(String name);
       
 }

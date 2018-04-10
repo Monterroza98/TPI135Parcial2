@@ -16,7 +16,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenim
 @Local
 public interface TipoMantenimientoFacadeLocal extends AbstractFacadeInterface<TipoMantenimiento>{
     
-    public List<TipoMantenimiento> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<TipoMantenimiento> findByNombreLike(String name);
 
     
 }
