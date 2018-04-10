@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Unidad;
 @Local
 public interface UnidadFacadeLocal extends AbstractFacadeInterface<Unidad>{
 
-    public List<Unidad> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<Unidad> findByNombreLike(String name);
     
 }

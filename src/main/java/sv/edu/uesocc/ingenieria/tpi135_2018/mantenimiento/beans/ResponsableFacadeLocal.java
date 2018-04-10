@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Responsable;
 @Local
 public interface ResponsableFacadeLocal extends AbstractFacadeInterface<Responsable>{
 
-    public List<Responsable> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<Responsable> findByNombreLike(String name);
     
 }

@@ -77,7 +77,7 @@ public class ModeloResource implements Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && mfl != null) {
-            List<Modelo> salida = mfl.findByNombreLike(nombre, first, pageSize);
+            List<Modelo> salida = mfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (Modelo m: salida) {

@@ -77,7 +77,7 @@ public class ResponsableResource implements Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && rfl != null) {
-            List<Responsable> salida = rfl.findByNombreLike(nombre, first, pageSize);
+            List<Responsable> salida = rfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (Responsable r : salida) {

@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,14 @@ public class ParteFacade extends AbstractFacade<Parte> implements ParteFacadeLoc
     }
 
     @Override
-    public List<Parte> findByNombreLike(String name, Integer first, Integer pageSize) {
-        Query query = em.createNamedQuery("Parte.findByNombreLike");
+    public List<Parte> findByNombreLike(String name) {
+        if(name!= null && getEntityManager() !=null){
+        Query query = em.createNamedQuery("parte.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<Parte> lista= query.getResultList();
         return lista;
-    }
+        }
+        return new ArrayList<>();
    
+}
 }

@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Paso;
 @Local
 public interface PasoFacadeLocal extends AbstractFacadeInterface<Paso>{
 
-    public List<Paso> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<Paso> findByNombreLike(String name);
     
 }

@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,14 @@ public class ResponsableFacade extends AbstractFacade<Responsable> implements Re
     }
 
     @Override
-    public List<Responsable> findByNombreLike(String name, Integer first, Integer pageSize) {
+    public List<Responsable> findByNombreLike(String name) {
+        if(name!= null && getEntityManager() !=null){
         Query query = em.createNamedQuery("Responsable.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<Responsable> lista= query.getResultList();
         return lista;
+        }
+        return new ArrayList<>();
     }
   
 }

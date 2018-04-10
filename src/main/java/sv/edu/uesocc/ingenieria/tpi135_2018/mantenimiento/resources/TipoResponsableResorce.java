@@ -78,7 +78,7 @@ public class TipoResponsableResorce implements  Serializable{
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
         if (nombre != null && trfl != null) {
-            List<TipoResponsable> salida = trfl.findByNombreLike(nombre, first, pageSize);
+            List<TipoResponsable> salida = trfl.findByNombreLike(nombre);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
                 for (TipoResponsable t : salida) {

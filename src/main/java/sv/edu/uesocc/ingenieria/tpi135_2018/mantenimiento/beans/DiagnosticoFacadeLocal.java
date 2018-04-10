@@ -16,6 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Diagnostico;
 @Local
 public interface DiagnosticoFacadeLocal extends AbstractFacadeInterface<Diagnostico>{
     
-    public List<Diagnostico> findByNombreLike(String name, Integer first, Integer pageSize);
+    public List<Diagnostico> findByNombreLike(String name);
     
 }

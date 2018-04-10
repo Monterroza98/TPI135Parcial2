@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,13 @@ public class ModeloFacade extends AbstractFacade<Modelo> implements ModeloFacade
     }
 
     @Override
-    public List<Modelo> findByNombreLike(String name, Integer first, Integer pageSize) {
-       Query query = em.createNamedQuery("Modelo.findByNombreLike");
+    public List<Modelo> findByNombreLike(String name) {
+       if(name!= null && getEntityManager() !=null){
+        Query query = em.createNamedQuery("Modelo.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<Modelo> lista= query.getResultList();
         return lista;
+        }
+        return new ArrayList<>();
     }
-    
 }

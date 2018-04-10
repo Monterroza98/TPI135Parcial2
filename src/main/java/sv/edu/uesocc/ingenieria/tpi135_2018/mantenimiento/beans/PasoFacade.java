@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,10 +33,14 @@ public class PasoFacade extends AbstractFacade<Paso> implements PasoFacadeLocal 
     }
 
     @Override
-    public List<Paso> findByNombreLike(String name, Integer first, Integer pageSize) {
-       Query query = em.createNamedQuery("Paso.findByNombreLike");
+    public List<Paso> findByNombreLike(String name) {
+        if(name!= null && getEntityManager() !=null){
+        Query query = em.createNamedQuery("Paso.findByNombreLike");
+        query.setParameter("nombre", name.toLowerCase());
         List<Paso> lista= query.getResultList();
         return lista;
-    }
+        }
+        return new ArrayList<>();
 
+}
 }
